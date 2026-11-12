@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <clipPath id="qaderno-monochrome-clip">
+      <rect width="512" height="512" rx="112"/>
+    </clipPath>
+  </defs>
+  <g transform="translate(256 256) scale(0.64) translate(-256 -256)">
+    <g clip-path="url(#qaderno-monochrome-clip)">
+      <!-- Zoomed lower-right quadrant of editorial uppercase Q (solid black monochrome, 64% safe-zone scale) -->
+      <path d="M -48 112 C 48 320, 288 336, 368 112 C 400 16, 384 -80, 320 -144" stroke="#000000" stroke-width="68" stroke-linecap="round" fill="none"/>
+      <path d="M 32 248 C 144 328, 280 296, 344 160" stroke="#000000" stroke-width="20" stroke-linecap="round" fill="none"/>
+      <path d="M 216 256 C 288 296, 336 384, 440 408" stroke="#000000" stroke-width="48" stroke-linecap="round" fill="none"/>
+      <circle cx="444" cy="406" r="21" fill="#000000"/>
+    </g>
+  </g>
+</svg>
