@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <clipPath id="qaderno-clip">
+      <rect width="512" height="512" rx="112"/>
+    </clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#FBFBFD"/>
+  <rect x="12" y="12" width="488" height="488" rx="100" stroke="#E5E5EA" stroke-width="6"/>
+  <g clip-path="url(#qaderno-clip)">
+    <g stroke="#E5E5EA" stroke-width="2" opacity="0.75">
+      <line x1="168" y1="24" x2="168" y2="488"/>
+      <line x1="344" y1="24" x2="344" y2="488"/>
+      <line x1="24" y1="168" x2="488" y2="168"/>
+      <line x1="24" y1="344" x2="488" y2="344"/>
+    </g>
+    <!-- Zoomed lower-right quadrant of editorial uppercase Q (bump-free inner curve) -->
+    <path d="M -24 128 C 48 316, 286 332, 368 112" stroke="#1C1C1E" stroke-width="66" stroke-linecap="round" fill="none"/>
+    <path d="M 228 274 C 292 312, 338 386, 442 408" stroke="#1C1C1E" stroke-width="48" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

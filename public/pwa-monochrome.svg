@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <g transform="translate(256 256) scale(0.76) translate(-256 -256)">
+    <!-- Curved Q monogram (solid black monochrome, safe-zone scaled, bump-free inner curve) -->
+    <path d="M 17 142 C 66 296, 268 308, 344 140" stroke="#000000" stroke-width="54" stroke-linecap="round" fill="none"/>
+    <path d="M 225 268 C 281 304, 328 358, 399 379" stroke="#000000" stroke-width="40" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>
