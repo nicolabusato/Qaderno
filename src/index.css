@@ -1,0 +1,360 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    --font-serif: 'Lora', Georgia, serif;
+    --font-hand: 'Kalam', cursive;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  html,
+  body,
+  #root {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-sans);
+    background-color: #F2F2F7;
+    color: #1C1C1E;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html.dark,
+  html.dark body,
+  html.dark #root {
+    background-color: #0E0E10;
+    color: #F5F5F7;
+  }
+
+  /* Universal tactile iOS micro-animations for every button & interactive control */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  summary {
+    transition:
+      transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 160ms ease,
+      opacity 160ms ease,
+      box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 180ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:not(:disabled):active,
+  [role="button"]:not([aria-disabled="true"]):active {
+    transform: scale(0.93);
+  }
+
+  button.no-press-scale:active,
+  [role="button"].no-press-scale:active {
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    button:not(:disabled),
+    [role="button"]:not([aria-disabled="true"]),
+    summary {
+      transition: none !important;
+    }
+    button:not(:disabled):active,
+    [role="button"]:not([aria-disabled="true"]):active {
+      transform: none !important;
+    }
+  }
+}
+
+/* Eliminate native iOS/iPadOS blue text selection & touch callout in non-text modes */
+.no-ios-select,
+.no-ios-select * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe area support for iOS/iPadOS/Android standalone & edge-to-edge */
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pl-safe {
+  padding-left: env(safe-area-inset-left, 0px);
+}
+
+.pr-safe {
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* iOS Translucent Glassmorphism (Light + Dark) */
+.ios-glass {
+  background-color: rgba(242, 242, 247, 0.68);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 28px rgba(28, 28, 30, 0.08);
+}
+
+.dark .ios-glass {
+  background-color: rgba(36, 36, 40, 0.70);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.48);
+}
+
+.ios-pill-glass {
+  background-color: rgba(242, 242, 247, 0.68);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 28px rgba(28, 28, 30, 0.09);
+}
+
+.dark .ios-pill-glass {
+  background-color: rgba(36, 36, 40, 0.70);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.52);
+}
+
+.ios-dock-glass {
+  background-color: rgba(242, 242, 247, 0.68);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 30px rgba(28, 28, 30, 0.10);
+}
+
+.dark .ios-dock-glass {
+  background-color: rgba(36, 36, 40, 0.70);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.54);
+}
+
+.ios-control-bg {
+  background-color: rgba(120, 120, 128, 0.12);
+}
+
+.ios-control-bg:hover {
+  background-color: rgba(120, 120, 128, 0.20);
+}
+
+.dark .ios-control-bg {
+  background-color: rgba(142, 142, 147, 0.18);
+}
+
+.dark .ios-control-bg:hover {
+  background-color: rgba(142, 142, 147, 0.28);
+}
+
+/* Paper Surface Backgrounds (Light #FBFBFD + #E5E5EA | Dark #161618 + #27272B) */
+.paper-surface {
+  background-color: #FBFBFD;
+}
+
+.paper-grid {
+  background-color: #FBFBFD;
+  background-image:
+    linear-gradient(to right, #E5E5EA 1px, transparent 1px),
+    linear-gradient(to bottom, #E5E5EA 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+}
+
+.dark .paper-grid {
+  background-color: #161618;
+  background-image:
+    linear-gradient(to right, #26262A 1px, transparent 1px),
+    linear-gradient(to bottom, #26262A 1px, transparent 1px);
+}
+
+.paper-lined {
+  background-color: #FBFBFD;
+  background-image: linear-gradient(to bottom, transparent 27px, #E5E5EA 28px);
+  background-size: 100% 28px;
+  background-position: 0 12px;
+}
+
+.dark .paper-lined {
+  background-color: #161618;
+  background-image: linear-gradient(to bottom, transparent 27px, #26262A 28px);
+}
+
+.paper-dotted {
+  background-color: #FBFBFD;
+  background-image: radial-gradient(#D8D8DF 1.15px, transparent 1.15px);
+  background-size: 22px 22px;
+  background-position: 11px 11px;
+}
+
+.dark .paper-dotted {
+  background-color: #161618;
+  background-image: radial-gradient(#34343A 1.15px, transparent 1.15px);
+}
+
+.paper-blank {
+  background-color: #FBFBFD;
+}
+
+.dark .paper-blank {
+  background-color: #161618;
+}
+
+/* Smooth visual-only paper surface transition (e.g. Night Study "Carta avorio") */
+.paper-grid,
+.paper-lined,
+.paper-dotted,
+.paper-blank {
+  transition: background-color 340ms ease, border-color 300ms ease;
+}
+
+/* Warm restful ivory tint (#FAF6EE) strictly on screen; PDF export & print stay pure white */
+.paper-ivory,
+.dark .paper-ivory {
+  background-color: #FAF6EE !important;
+  color: #1C1C1E;
+  border-color: rgba(60, 60, 67, 0.14) !important;
+}
+
+.paper-ivory.paper-grid,
+.dark .paper-ivory.paper-grid {
+  background-image:
+    linear-gradient(to right, #E6DFCE 1px, transparent 1px),
+    linear-gradient(to bottom, #E6DFCE 1px, transparent 1px);
+}
+
+.paper-ivory.paper-lined,
+.dark .paper-ivory.paper-lined {
+  background-image: linear-gradient(to bottom, transparent 27px, #E6DFCE 28px);
+}
+
+.paper-ivory.paper-dotted,
+.dark .paper-ivory.paper-dotted {
+  background-image: radial-gradient(#D5CEBC 1.15px, transparent 1.15px);
+}
+
+/* Keep sheet typography crisp graphite if "Carta avorio" is toggled while dark theme is active */
+.dark .paper-ivory input,
+.dark .paper-ivory .rich-block-editable {
+  color: #1C1C1E;
+}
+
+/* Font families for keyboard notes */
+.font-note-sans {
+  font-family: var(--font-sans);
+}
+
+.font-note-serif {
+  font-family: var(--font-serif);
+}
+
+.font-note-hand {
+  font-family: var(--font-hand);
+}
+
+.font-note-mono {
+  font-family: var(--font-mono);
+}
+
+/* Subtle Snap Confirmation Pulse */
+@keyframes snap-confirm {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.985);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+.animate-snap-confirm {
+  animation: snap-confirm 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Clean scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(60, 60, 67, 0.18);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.rich-block-editable {
+  position: relative;
+}
+
+.rich-block-editable[data-is-empty="true"]::before,
+.rich-block-editable:empty::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  color: rgba(142, 142, 147, 0.62);
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Print Styles */
+@media print {
+  body,
+  html,
+  #root {
+    position: static !important;
+    inset: auto !important;
+    background: #ffffff !important;
+    color: #1C1C1E !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-container {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .paper-ivory,
+  .dark .paper-ivory {
+    background-color: #ffffff !important;
+  }
+}
