@@ -43,5 +43,5 @@ Qaderno unisce un editor di testo a blocchi con un livello di disegno vettoriale
 
 1. Clona il repository e spostati nella cartella del progetto:
    ```bash
-   git clone <url-del-repository>
+   git clone github.com/nicolabusato/Qaderno
    cd qaderno
