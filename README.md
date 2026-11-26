@@ -45,3 +45,8 @@ Qaderno unisce un editor di testo a blocchi con un livello di disegno vettoriale
    ```bash
    git clone github.com/nicolabusato/Qaderno
    cd qaderno
+
+
+
+
+Il sito è stato creato con l'ausilio di Google AI Studio e Gemini. Qaderno non è a scopo di lucro e vuole essere un progetto creativo per studiare le capacità di IA generative per poter poi usare liberamente i loro prodotti.
